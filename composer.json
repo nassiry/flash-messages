@@ -1,0 +1,40 @@
+{
+  "name": "nassiry/flash-messages",
+  "description": "A PHP package for handling flash messages with session storage & rendering.",
+  "keywords": [
+    "flash-message",
+    "session-message",
+    "php-flash",
+    "render-flashes"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "A.S Nassiry",
+      "email": "me@example.com",
+      "homepage": "https://github.com/nassiry/flash-messages",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Nassiry\\FlashMessages\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Nassiry\\FlashMessages\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "phpunit --bootstrap vendor/autoload.php tests/FlashMessagesTest.php --testdox"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.5"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
