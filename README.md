@@ -2,7 +2,11 @@
 
 # Flash Messages Package
 
+![Tests](https://github.com/nassiry/flash-messages/actions/workflows/tests.yml/badge.svg)
+![Packagist Downloads](https://img.shields.io/packagist/dt/nassiry/flash-messages)
+![Packagist Version](https://img.shields.io/packagist/v/nassiry/flash-messages)
 ![PHP](https://img.shields.io/badge/PHP-%5E7.4-blue)
+![License](https://img.shields.io/github/license/nassiry/flash-messages)
 
 
 </div>
