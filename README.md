@@ -13,8 +13,9 @@
 
 ---
 
-A lightweight PHP library for handling flash messages with session storage & rendering. This package does not depend on any framework, but it can be integrated with frameworks like Laravel, Symfony, CakePHP, and CodeIgniter if needed.
+A lightweight PHP library for handling flash messages with **session storage** & simple **HTML** rendering. This package does not depend on any framework, but it can be integrated with frameworks like **Laravel**, **Symfony**, **CakePHP**, and **CodeIgniter** if needed.
 
+#### Features
 - Session-based flash message storage.
 - Instant message rendering.
 - Custom message types.
@@ -31,7 +32,6 @@ composer require nassiry/flash-messages
 ## Usage
 
 By default, the package stores messages in sessions to be displayed on the next page load.
-
 ### 1. Default Usage (Display on Next Page Load)
 
 ```
@@ -47,7 +47,7 @@ $flash->error('An error occurred.');
 // Render messages on the next page template file
 $flash->render();
 ```
-
+> **Note**: Ensure that `session_start();` has been called in your script before using.
 ### 2. Current Page Usage (Display Immediately)
 
 To display a message on the current page, set the second argument to `true` (default is `false`):
