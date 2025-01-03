@@ -8,14 +8,11 @@
 ![PHP](https://img.shields.io/badge/PHP-%5E7.4-blue)
 ![License](https://img.shields.io/github/license/nassiry/flash-messages)
 
-
 </div>
-
----
 
 A lightweight PHP library for handling flash messages with **session storage** & simple **HTML** rendering. This package does not depend on any framework, but it can be integrated with frameworks like **Laravel**, **Symfony**, **CakePHP**, and **CodeIgniter** if needed.
 
-#### Features
+### Features
 - Session-based flash message storage.
 - Instant message rendering.
 - Custom message types.
@@ -35,6 +32,8 @@ By default, the package stores messages in sessions to be displayed on the next 
 ### 1. Default Usage (Display on Next Page Load)
 
 ```
+require __DIR__ . '/vendor/autoload.php';
+
 use Nassiry\FlashMessages\FlashMessages;
 
 // Create an instance
@@ -53,6 +52,8 @@ $flash->render();
 To display a message on the current page, set the second argument to `true` (default is `false`):
 
 ```
+require __DIR__ . '/vendor/autoload.php';
+
 use Nassiry\FlashMessages\FlashMessages;
 
 // Create an instance
