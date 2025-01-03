@@ -30,4 +30,4 @@ jobs:
         run: composer install --no-progress --prefer-dist
 
       - name: Run Tests
-        run: vendor/bin/phpunit
+        run: composer test
