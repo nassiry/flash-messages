@@ -31,7 +31,7 @@ composer require nassiry/flash-messages
 By default, the package stores messages in sessions to be displayed on the next page load.
 ### 1. Default Usage (Display on Next Page Load)
 
-```
+```php
 require __DIR__ . '/vendor/autoload.php';
 
 use Nassiry\FlashMessages\FlashMessages;
@@ -51,7 +51,7 @@ $flash->render();
 
 To display a message on the current page, set the second argument to `true` (default is `false`):
 
-```
+```php
 require __DIR__ . '/vendor/autoload.php';
 
 use Nassiry\FlashMessages\FlashMessages;
@@ -70,7 +70,7 @@ $flash->render();
 
 You can check if there are any stored messages:
 
-```
+```php
 if ($flash->hasMessages()) {
     echo "There are flash messages available.";
 }
@@ -80,7 +80,7 @@ if ($flash->hasMessages()) {
 
 You can retrieve all stored messages as an array:
 
-```
+```php
 $messages = $flash->getMessages();
 foreach ($messages as $message) {
     echo $message['type'] . ': ' . $message['message'] . "<br>";
@@ -90,9 +90,10 @@ foreach ($messages as $message) {
 ### 5. Rendering Messages
 Outputs all flash messages with default HTML structure
 
-```
+```php
 $flash->render();
-
+```
+```html
 <div class="flash flash-success">Operation successful!</div>
 <div class="flash flash-error">An error occurred!</div>
 ```
@@ -101,14 +102,14 @@ $flash->render();
 
 To clear all stored messages:
 
-```
+```php
 $flash->clear();
 ```
 
 ### Adding Different Types of Messages
 Currently, the package support following message types.
 
-```
+```php
 $flash->success('Success message!');
 $flash->error('Error message!');
 $flash->info('Informational message!');
@@ -119,7 +120,7 @@ $flash->warning('Warning message!');
 
 If you need to customize the way messages are displayed, extend the `FlashMessageRenderer` class:
 
-```
+```php
 use Nassiry\FlashMessages\FlashMessageRenderer;
 
 class CustomRenderer extends FlashMessageRenderer
