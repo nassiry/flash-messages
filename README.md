@@ -108,12 +108,21 @@ $flash->clear();
 
 ### Adding Different Types of Messages
 Currently, the package support following message types.
-
+ - `$flash->success('Success message!');`
+ - `$flash->error('Error message!');`
+ - `$flash->info('Informational message!');`
+ - `$flash->warning('Warning message!');`
+#### Adding a custom type message
+ - `addCustomType(string $type, string $message, bool $instant = false)`
 ```php
-$flash->success('Success message!');
-$flash->error('Error message!');
-$flash->info('Informational message!');
-$flash->warning('Warning message!');
+$flash->addCustomType('notification',
+ 'This is a custom notification message!',
+  true
+ );
+$flash->addCustomType('alert',
+ 'This is an alert message!',
+  false
+);
 ```
 
 ### Custom Rendering Logic
