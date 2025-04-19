@@ -22,6 +22,10 @@ class FlashMessageRenderer
      */
     public function renderMessage(string $type, string $message): void
     {
-        echo sprintf('<div class="flash flash-%s">%s</div>', htmlspecialchars($type), htmlspecialchars($message));
+        echo sprintf(
+            '<div class="flash flash-%s">%s</div>',
+            htmlspecialchars($type, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'),
+            htmlspecialchars($message, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8')
+        );
     }
 }

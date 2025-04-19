@@ -27,19 +27,20 @@ interface FlashMessageInterface
     public function render(): void;
 
     /**
-     * Checks if there are any stored flash messages.
+     * Checks if there are any stored flash messages, optionally filtered by type.
      *
-     * @return bool True if there are messages, false otherwise.
+     * @param string|null $type The type to check for, or null to check for any.
+     * @return bool True if messages exist (of that type, if given), false otherwise.
      */
-    public function hasMessages(): bool;
+    public function hasMessages(?string $type = null): bool;
 
     /**
      * Retrieves all stored flash messages.
      *
+     * @param string|null $type The type to filter messages by, or null for all.
      * @return array<int, array{type: string, message: string}> The array of flash messages.
-     *
      */
-    public function getMessages(): array;
+    public function getMessages(?string $type = null): array;
 
     /**
      * Clears all stored flash messages.

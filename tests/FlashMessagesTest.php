@@ -135,6 +135,30 @@ class FlashMessagesTest extends TestCase
         $this->assertSame($messages, $this->flashMessages->getMessages());
     }
 
+    public function testGetMessagesWithTypeFilter(): void
+    {
+        $messages = [
+            ['type' => 'info', 'message' => 'Information message'],
+            ['type' => 'error', 'message' => 'Error message'],
+            ['type' => 'info', 'message' => 'Another info message'],
+        ];
+
+        $this->mockStorage
+            ->expects($this->once())
+            ->method('getMessages')
+            ->willReturn($messages);
+
+        $filteredMessages = $this->flashMessages->getMessages('info');
+
+        $expected = [
+            ['type' => 'info', 'message' => 'Information message'],
+            ['type' => 'error', 'message' => 'Error message'],
+            ['type' => 'info', 'message' => 'Another info message'],
+        ];
+
+        $this->assertSame($expected, $filteredMessages);
+    }
+
     public function testClearMessages(): void
     {
         $this->mockStorage

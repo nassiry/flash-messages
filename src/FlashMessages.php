@@ -127,24 +127,19 @@ class FlashMessages
     }
 
     /**
-     * Check if there are any stored messages.
-     *
-     * @return bool
+     * {@inheritdoc}
      */
-    public function hasMessages(): bool
+    public function hasMessages(?string $type = null): bool
     {
-        return $this->storage->hasMessages();
+        return $this->storage->hasMessages($type);
     }
 
     /**
-     * Get all stored messages.
-     *
-     * @return array<int, array{type: string, message: string}>
-     *
+     * {@inheritdoc}
      */
-    public function getMessages(): array
+    public function getMessages(?string $type = null): array
     {
-        return $this->storage->getMessages();
+        return $this->storage->getMessages($type);
     }
 
     /**

@@ -53,17 +53,36 @@ class FlashMessageStorage implements FlashMessageInterface
     /**
      * {@inheritdoc}
      */
-    public function hasMessages(): bool
+    public function hasMessages(?string $type = null): bool
     {
-        return !empty($this->messages);
+        if ($type === null) {
+            return !empty($this->messages);
+        }
+
+        foreach ($this->messages as $message) {
+            if ($message['type'] === $type) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getMessages(): array
+    public function getMessages(?string $type = null): array
     {
-        return $this->messages;
+        if ($type === null) {
+            return $this->messages;
+        }
+
+        return array_values(
+            array_filter(
+                $this->messages,
+                fn(array $message): bool => isset($message['type']) && $message['type'] === $type
+            )
+        );
     }
 
     /**

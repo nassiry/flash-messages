@@ -1,6 +1,6 @@
 <div align="center">
 
-# Flash Messages Package
+# Flash Messages
 
 ![Tests](https://github.com/nassiry/flash-messages/actions/workflows/tests.yml/badge.svg)
 ![Packagist Downloads](https://img.shields.io/packagist/dt/nassiry/flash-messages)
@@ -17,6 +17,24 @@ A lightweight PHP library for handling flash messages with **session storage** &
 - Instant message rendering.
 - Custom message types.
 - Fully framework-agnostic.
+
+## Table Of Contents
+1. [Installation](#installation)
+2. [Usage](#usage)
+    - [Default Usage (Display on Next Page Load)](#1-default-usage-display-on-next-page-load)
+    - [Current Page Usage (Display Immediately)](#2-current-page-usage-display-immediately)
+    - [Checking for Messages](#3-checking-for-messages)
+    - [Retrieving Messages](#4-retrieving-messages)
+    - [Rendering Messages](#5-rendering-messages)
+    - [Clearing Messages](#6-clearing-messages)
+3. [Adding Different Types of Messages](#adding-different-types-of-messages)
+    - [Adding a custom type message](#adding-a-custom-type-message)
+4. [Adding a custom type message](#custom-rendering-logic)
+5. [Testing](#testing)
+    - [Prerequisites](#1-prerequisites)
+    - [Running Tests](#2-running-tests)
+6. [License](#license)
+7. [Contributing](#contributing)
 
 ## Installation
 
@@ -71,8 +89,14 @@ $flash->render();
 You can check if there are any stored messages:
 
 ```php
+// Check if ANY messages exist
 if ($flash->hasMessages()) {
     echo "There are flash messages available.";
+}
+
+// Check if SPECIFIC TYPE messages exist
+if ($flash->hasMessages('info')) {
+    echo "There are info messages available.";
 }
 ```
 
@@ -81,9 +105,20 @@ if ($flash->hasMessages()) {
 You can retrieve all stored messages as an array:
 
 ```php
-$messages = $flash->getMessages();
-foreach ($messages as $message) {
+// Get ALL messages
+$allMessages = $flash->getMessages();
+foreach ($allMessages as $message) {
     echo $message['type'] . ': ' . $message['message'] . "<br>";
+}
+
+// Get messages of SPECIFIC TYPE
+$infoMessages = $flash->getMessages('info');
+if (!empty($infoMessages)) {
+    foreach ($infoMessages as $message) {
+        echo 'Info: ' . $message['message'] . "<br>";
+    }
+} else {
+    echo "No info messages found.";
 }
 ```
 

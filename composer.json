@@ -1,6 +1,7 @@
 {
   "name": "nassiry/flash-messages",
   "description": "A PHP package for handling flash messages with session storage & rendering.",
+  "version": "2.0.0",
   "keywords": [
     "flash-message",
     "session-message",
